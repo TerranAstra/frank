@@ -1,4 +1,3 @@
-#r "System.IO"
 using System;
 using System.IO;
 
@@ -12,12 +11,11 @@ foreach (var dir in dirs)
 {
     var name = Path.GetFileName(dir);
     if (string.IsNullOrWhiteSpace(name)) continue;
-    var basePath = Path.Combine(root, dir);
     // Standard subfolders/files
-    var chatsDir = Path.Combine(dir, $"Frank._{name}.Chats");
-    var readme = Path.Combine(dir, $"Frank._{name}.ReadMe.md");
-    var build = Path.Combine(dir, $"Frank._{name}.Build.csx");
-    var fangshiDir = Path.Combine(dir, $"Frank._{name}.Fangshi");
+    var chatsDir = Path.Combine(dir, $"Frank.{name}.Chats");
+    var readme = Path.Combine(dir, $"Frank.{name}.ReadMe.md");
+    var build = Path.Combine(dir, $"Frank.{name}.Build.csx");
+    var fangshiDir = Path.Combine(dir, $"Frank.{name}.Fangshi");
 
     // Create Chats folder
     if (!Directory.Exists(chatsDir))
@@ -34,15 +32,15 @@ foreach (var dir in dirs)
     // Create ReadMe.md
     if (!File.Exists(readme))
     {
-        File.WriteAllText(readme, $"# Frank._{name}\n\nAuto-generated ReadMe for {name}.");
+        File.WriteAllText(readme, $"# Frank.{name}\n\nAuto-generated ReadMe for {name}.");
         Console.WriteLine($"Created: {readme}");
     }
     // Create Build.csx
     if (!File.Exists(build))
     {
-        File.WriteAllText(build, $"// Frank._{name}.Build.csx\n// Auto-generated build script for {name}.");
+        File.WriteAllText(build, $"// Frank.{name}.Build.csx\n// Auto-generated build script for {name}.");
         Console.WriteLine($"Created: {build}");
     }
 }
 
-Console.WriteLine("Done."); 
+Console.WriteLine("Done.");
