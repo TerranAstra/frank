@@ -1,3 +1,6 @@
-# Frank._Frank.AppHost
 
-Auto-generated ReadMe for Frank.AppHost.
+# Frank.AppHost
+
+this will be an Aspire app
+this piece -- AppHost -- is the orchestrator
+
